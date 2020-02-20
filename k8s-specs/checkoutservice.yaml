@@ -30,12 +30,6 @@ spec:
           image: kulkarniijayesh/microservice-demo-checkout-svc:IMAGE-TAG
           ports:
           - containerPort: 5050
-          readinessProbe:
-            exec:
-              command: ["/bin/grpc_health_probe", "-addr=:5050"]
-          livenessProbe:
-            exec:
-              command: ["/bin/grpc_health_probe", "-addr=:5050"]
           env:
           - name: PORT
             value: "5050"
@@ -53,13 +47,6 @@ spec:
             value: "cartservice:7070"
           # - name: JAEGER_SERVICE_ADDR
           #   value: "jaeger-collector:14268"
-          resources:
-            requests:
-              cpu: 100m
-              memory: 64Mi
-            limits:
-              cpu: 200m
-              memory: 128Mi
 ---
 apiVersion: v1
 kind: Service

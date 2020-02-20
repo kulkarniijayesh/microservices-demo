@@ -33,23 +33,9 @@ spec:
         env:
         - name: PORT
           value: "50051"
-        readinessProbe:
-          periodSeconds: 5
-          exec:
-            command: ["/bin/grpc_health_probe", "-addr=:50051"]
-        livenessProbe:
-          exec:
-            command: ["/bin/grpc_health_probe", "-addr=:50051"]
 #        env:
 #          - name: JAEGER_SERVICE_ADDR
 #            value: "jaeger-collector:14268"
-        resources:
-          requests:
-            cpu: 100m
-            memory: 64Mi
-          limits:
-            cpu: 200m
-            memory: 128Mi
 ---
 apiVersion: v1
 kind: Service
